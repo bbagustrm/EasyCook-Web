@@ -2,9 +2,8 @@
 
 require_once "product.php";
 $Makanan = new Makanan();
-
+$Minuman = new Minuman();
 ?>
-
 
 
 <!DOCTYPE html>
@@ -34,19 +33,42 @@ $Makanan = new Makanan();
 
     <div class="container">
         <div class="welcome"></div>
-        <div class="content">
-            <?php for($i = 0; $i < count($Makanan->product);$i++) {?>
+        <div class="filter">
+            <a class="filter-makanan">Makanan</a>
+            <a class="filter-minuman">Minuman</a>
+        </div>
+        <div class="content makanan">
+            <?php foreach($Makanan->product as $key => $value) {?>
             <div class="content-box">
-                <div class="content-img" style="background-image: url('<?php echo $Makanan->product[$i][0];?>');""></div>
+                <div class="content-img" style="background-image: url('<?php echo $value[0];?>');""></div>
                 <div class="content-des">
-                    <h1><?php echo $Makanan->product[$i][1]; ?></h1>
-                    <p class="rating"><span>★</span><?php echo $Makanan->product[$i][2]; ?></p>
-                    <?php if($Makanan->product[$i][3] == "Sulit") {?>
-                        <p class="dificulty">Kesulitan : <span style="background-color: #cb2b1e;"><?php echo $Makanan->product[$i][3]; ?></span></p>
-                    <?php }elseif($Makanan->product[$i][3] == "Sedang"){?>
-                        <p class="dificulty">Kesulitan : <span style="background-color: #ffa700;"><?php echo $Makanan->product[$i][3]; ?></span></p>
-                    <?php }elseif($Makanan->product[$i][3] == "Mudah"){?>
-                        <p class="dificulty">Kesulitan : <span style="background-color: #008744;"><?php echo $Makanan->product[$i][3]; ?></span></p>
+                    <h1><?php echo $key; ?></h1>
+                    <p class="rating"><span>★</span><?php echo $value[1]; ?></p>
+                    <?php if($value[2] == "Sulit") {?>
+                        <p class="dificulty">Kesulitan : <span style="background-color: #cb2b1e;"><?php echo $value[2]; ?></span></p>
+                    <?php }elseif($value[2] == "Sedang"){?>
+                        <p class="dificulty">Kesulitan : <span style="background-color: #ffa700;"><?php echo $value[2]; ?></span></p>
+                    <?php }elseif($value[2] == "Mudah"){?>
+                        <p class="dificulty">Kesulitan : <span style="background-color: #008744;"><?php echo $value[2]; ?></span></p>
+                    <?php }?>
+                    <div class="button"><a href="#">Pelajari</a></div>
+                </div>
+            </div>
+            <?php };?>
+        </div>
+        <div class="content minuman">
+            <?php foreach($Minuman->product as $key => $value) {?>
+            <div class="content-box">
+                <div class="content-img" style="background-image: url('<?php echo $value[0];?>');""></div>
+                <div class="content-des">
+                    <h1><?php echo $key; ?></h1>
+                    <p class="rating"><span>★</span><?php echo $value[1]; ?></p>
+                    <?php if($value[2] == "Sulit") {?>
+                        <p class="dificulty">Kesulitan : <span style="background-color: #cb2b1e;"><?php echo $value[2]; ?></span></p>
+                    <?php }elseif($value[2] == "Sedang"){?>
+                        <p class="dificulty">Kesulitan : <span style="background-color: #ffa700;"><?php echo $value[2]; ?></span></p>
+                    <?php }elseif($value[2] == "Mudah"){?>
+                        <p class="dificulty">Kesulitan : <span style="background-color: #008744;"><?php echo $value[2]; ?></span></p>
                     <?php }?>
                     <div class="button"><a href="#">Pelajari</a></div>
                 </div>
@@ -57,5 +79,8 @@ $Makanan = new Makanan();
     <div class="footer">
         <p>© 2023 EasyCook.com, All rights reserved</p>
     </div>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
