@@ -3,6 +3,7 @@
 require_once "product.php";
 $Makanan = new Makanan();
 $Minuman = new Minuman();
+
 ?>
 
 
@@ -18,13 +19,12 @@ $Minuman = new Minuman();
 <body>
     <div class="header">
         <div class="logo">
-            <h1>EasyCook</h1>
+            <h1><a href="index.php">EasyCook</a></h1>
         </div>
         <div class="nav">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">List</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="about.php">About</a></li>
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Register</a></li>
             </ul>
@@ -40,10 +40,10 @@ $Minuman = new Minuman();
         <div class="content makanan">
             <?php foreach($Makanan->product as $key => $value) {?>
             <div class="content-box">
-                <div class="content-img" style="background-image: url('<?php echo $value[0];?>');""></div>
+                <div class="content-img" style="background-image: url('<?php echo $value[1];?>');""></div>
                 <div class="content-des">
                     <h1><?php echo $key; ?></h1>
-                    <p class="rating"><span>★</span><?php echo $value[1]; ?></p>
+                    <p class="rating"><span>★</span><?php echo $value[0]; ?></p>
                     <?php if($value[2] == "Sulit") {?>
                         <p class="dificulty">Kesulitan : <span style="background-color: #cb2b1e;"><?php echo $value[2]; ?></span></p>
                     <?php }elseif($value[2] == "Sedang"){?>
@@ -51,7 +51,7 @@ $Minuman = new Minuman();
                     <?php }elseif($value[2] == "Mudah"){?>
                         <p class="dificulty">Kesulitan : <span style="background-color: #008744;"><?php echo $value[2]; ?></span></p>
                     <?php }?>
-                    <div class="button"><a href="#">Pelajari</a></div>
+                    <div class="button"><a href="detail.php?product=<?= $key?>&kategori=makanan">Pelajari</a></div>
                 </div>
             </div>
             <?php };?>
@@ -59,10 +59,10 @@ $Minuman = new Minuman();
         <div class="content minuman">
             <?php foreach($Minuman->product as $key => $value) {?>
             <div class="content-box">
-                <div class="content-img" style="background-image: url('<?php echo $value[0];?>');""></div>
+                <div class="content-img" style="background-image: url('<?php echo $value[1];?>');""></div>
                 <div class="content-des">
                     <h1><?php echo $key; ?></h1>
-                    <p class="rating"><span>★</span><?php echo $value[1]; ?></p>
+                    <p class="rating"><span>★</span><?php echo $value[0]; ?></p>
                     <?php if($value[2] == "Sulit") {?>
                         <p class="dificulty">Kesulitan : <span style="background-color: #cb2b1e;"><?php echo $value[2]; ?></span></p>
                     <?php }elseif($value[2] == "Sedang"){?>
@@ -70,7 +70,7 @@ $Minuman = new Minuman();
                     <?php }elseif($value[2] == "Mudah"){?>
                         <p class="dificulty">Kesulitan : <span style="background-color: #008744;"><?php echo $value[2]; ?></span></p>
                     <?php }?>
-                    <div class="button"><a href="#">Pelajari</a></div>
+                    <div class="button"><a href="detail.php?product=<?=$key?>&kategori=minuman">Pelajari</a></div>
                 </div>
             </div>
             <?php };?>

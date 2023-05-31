@@ -1,29 +1,31 @@
-<?php 
+<?php
 
-abstract class Product{
+abstract class Product
+{
 
     public $product = [];
+}
+
+
+class Makanan extends Product
+{
+    public $product = [
+        "Soto" => [4.7,"assets/img-soto.jpg", "Sulit", "<b>Bahan</b> :<br>1/2 ekor ayam kampung, potong dua<br>1.5 liter air<br>3 sdm minyak sayur<br>1 batang serai, memarkan<br>2 lembar daun salam<br>2 lembar daun jeruk<br><br><b>Bumbu Halus </b>:<br>5 butir bawang putih<br>3 siung bawang merah<br>4 butir kemiri<br>3 cm kunyit<br>1 cm jahe<br>1/2 sdt merica butiran<br>2 sdt garam<br><br><b>Pelengkap </b>:<br>100 g tauge<br>100 g suun, seduh air panas<br>2 butir telur rebus<br>2 sdm daun bawang<br>4 sdm bawang merah goreng<br>4 sdm sambal rawit<br>2 butir jeruk nipis, potong-potong","<b>Cara Membuat</b> :<br>1. Didihkan air, rebus ayam dengan api kecil hingga daging ayam hampir lunak.<br>2. Tumis bumbu halus bersama daun jeruk, daun salam, serai dan aduk hingga matang dan harum. Angkat.<br>3. Masukkan ke dalam rebusan ayam.<br>4. Rebus dengan api kecil hingga daging ayam lunak.<br>5. Angkat ayam, tiriskan hingga agak kering.<br>6. Goreng ayam sebentar hingga bagian luarnya kering. Tiriskan.<br>7. Suwir daging ayam kasar-kasar.<br>8. Susun ayam, suun, tauge dalam mangkuk saji.<br>9. Tuangi kaldu panas.<br>10. Sajikan dengan daun bawang, bawang goreng, sambal rawit dan jeruk nipis.<br>"],
+        "Sate" => [4.9,"assets/img-sate.jpg", "Sedang", "<b>Bahan : </b><br>Daging kambing, potong dadu 2 cm - 500 gram <br>Tusuk sate, rendam dalam air lalu tiriskan - 20 buah <br><br><b>Bumbu Olesan : </b><br>Bawang putih, haluskan - 2 siung <br>Ketumbar halus - 1/2 sdt<br>Merica halus - 1/4 sdt<br>Kecap manis - 100 ml <br>Air perasan jeruk nipis - secukupnya<br><br><b>Pelengkap : </b><br>Kubis, iris halus - 50 gram<br>Tomat merah, potong - 2 buah<br>Cabai rawit, iris - 10 buah<br>Bawang merah, iris - 10 butir<br>Kecap manis - 5 sdm<br>Jeruk nipis, belah jadi 4 - 1 buah<br>Acar timun - secukupnya<br>","<b>Cara Membuat: </b><br>1. Tusuk daging dengan tusukan sate. Isi setiap tusukan dengan 4 potong daging. Sisihkan.<br>2. Dalam wadah, campur semua bahan olesan lalu oleskan ke daging sate.<br>3. Bakar sate di atas bara api sambil sesekali dioles bumbu oles. Bakar hingga berwarna kecoklatan, matang, dan harum. Angkat.<br>4. Tata semua bahan pelengkap (Acar timun) dan sate di atas piring saji. Tuang kecap manis di atas sate. Siap disajikan.<br><br><b>Tips: </b><br>1. Agar daging tidak alot, gunakan daging kambing muda yang berusia maksimal 5 bulan.<br>2. Jika suka, anda juga bisa menggunakan hati kambing.<br>3. Bakar sate pakai panggangan lebih mudah dan praktis. Nah, kunci dari panggangan yang sempurna adalah wajan panas. Pakailah wajan besi jika ingin hasilnya sempurna, tapi tak masalah kalau pakai teflon atau grilling pan."],
+        "Ayam Goreng" => [4.8,"assets/img-ayamgoreng.jpg", "Mudah","<b>Bahan :</b><br>Ayam, potong sesuai selera - 500 gram<br>Air jeruk nipis - 1 sdm<br>Minyak wijen - 1 sdm<br>Saus tiram - 1 sdm<br>Kecap ikan - 1 sdm<br>Garam - 1/2 sdt<br>Gula - 1 sdm<br>Tepung terigu - 3 sdm<br><br><b>Bumbu Halus :</b><br>Terasi - 12 gram<br>Bawang putih - 3 siung<br>Bawang merah - 2 siung<br>", "<b>Cara Membuat :</b><br>1. Dalam wadah masukan ayam, air jeruk nipis, dan bumbu halus. Tambahkan minyak wijen, saus tiram, kecap ikan, gula dan garam secukupnya.<br>2. Marinasi ayam yang telah dibumbui selama 30 menit.<br>3. Sebelum digoreng taburi tepung terigu pada ayam kemudian aduk rata.<br>4. Panaskan minyak goreng dan goreng hingga berubah warna.<br>5. Setelah matang dan kecoklatan, angkat dan tiriskan. Siap disajikan.<br><br><b>Tips :</b><br>1. Agar lebih enak dan bumbu lebih meresap baiknya marinasi ayam semalaman.<br>2. Gunakan terasi dengan aroma segar. Dalam marinasi ayam tidak perlu menggunakan air."],
+        "Ayam Bakar" => [4.5,"assets/img-ayambakar.jpg", "Mudah","<b>Bahan:</b><br>Ayam kampung muda - 1 ekor<br> Air - 400 ml<br> Lengkuas, memarkan - 2 cm<br> Serai, memarkan - 2 batang<br> Daun salam - 1 lembar<br> Daun jeruk - 3 lembar<br> Gula - 1/2 sdm<br> Air asam jawa - 3 sdm<br><br> <b>Bumbu Halus:</b><br> Bawang merah - 6 butir<br> Bawang putih - 4 siung<br> Jahe - 2 cm<br> Kemiri, sangrai - 3 butir<br> Ketumbar, sangrai - 1 sdm<br> Kunyit, bakar - 3 cm<br> Garam - 1 sdm<br><br> <b>Bahan Pelengkap:</b><br> Sambal - secukupnya<br> Lalapan (timun dan kemangi) - secukupnya<br>", "<b>Cara Membuat:</b><br> 1. Potong ayam jadi 4 bagian lalu bersihkan dengan air mengalir hingga tak ada lendir dan kotoran.<br> 2. Lumurkan bumbu halus ke seluruh permukaan ayam.<br> 3. Dalam panci, masukkan ayam. Tambahkan air, lengkuas, serai, daun salam, daun jeruk, dan gula. Aduk rata. Masak dengan api kecil sambil ditutup hingga mendidih.<br> 4. Balik ayam lalu tuang air asam. Masak kembali hingga air hampir habis. Angkat.<br> 5. Siapkan alat pemanggang (baik menggunakan arang atau kompor). Bakar ayam hingga berwarna kecoklatan di kedua sisinya. Angkat.<br> 6. Siap disajikan dengan sambal dan lalapan.<br><br> <b>Tips:</b><br> Ayam kampung bisa diganti dengan ayam pejantan. "],
+    ];
+
 
 }
 
 
-class Makanan extends Product{
+class Minuman extends Product
+{
     public $product = [
-        "Soto " => ["assets/img-soto.jpg", 4.7, "Sulit"],
-        "Sate" => ["assets/img-sate.jpg", 4.9, "Sedang"],
-        "Ayam Goreng" => ["assets/img-ayamgoreng.jpg", 4.8, "Mudah"],
-        "Ayam Bakar" => ["assets/img-ayambakar.jpg", 4.5, "Mudah"],
+        "Lemon Tea" => [4.5, "assets/img-lemontea.jpg", "Mudah","<b>Bahan:</b><br>Teh hitam - 2 sdm<br>Air untuk seduh teh - 200 ml<br>Gula pasir - 50 gram<br>Air untuk membuat sirup gula - 200 ml<br>Es batu - 200 gram<br>Madu - 2 sdm<br>Jeruk lemon lokal - 2 buah<br>", "<b>Cara Membuat:</b><br>1. Buat Sirup Gula: Masak air sampai mendidih, masukkan gula pasir, aduk sampai larut, saring dan biarkan dingin.<br>2. Masak air sampai mendidih, masukkan teh, aduk sebentar, matikan api.<br>3. Biarkan 3 menit, kemudian saring dan dinginkan.<br>4. Peras 1,5 buah lemon.<br>5. Iris setengah bagian sisanya.<br>6. Siapkan teko, masukkan seduhan teh, sirup gula, perasan lemon, dan madu, aduk rata.<br>7. Sajikan di gelas saji dengan es batu dan irisan lemon.<br>"],
+        "Es Doger" => [4.7, "assets/img-esdoger.jpg", "Mudah","<b>Bahan: </b><br>Santan - 1 liter<br>Gula pasir - 150 gram<br>Garam - 1/2 sdt<br>Pasta doger - 2 sdm<br>Daun pandan, simpulkan - 2 helai<br><br><b>Pelengkap: </b><br>Tape singkong - 100 gram<br>Tape ketan - 100 gram<br>Alpukat - 1 buah<br>Roti tawar, potong dadu - 2 helai<br>Kental manis - 4 sdm<br>", "<b>Cara Membuat: </b><br>1. Campurkan semua bahan masak dengan api sedang hingga mendidih sambil terus diaduk agar santan tidak pecah. Koreksi rasa jika sudah pas matikan api.<br>2. Letakkan dalam wadah tertutup lalu simpan ke dalam freezer selama 2 jam.<br>3. Siapkan bahan pelengkap, ambil es doger dalam freezer serut dengan menggunakan sendok lalu tuang dalam wadah.<br>4. Tambahkan tape singkong, tape ketan, alpukat dan roti tawar lalu siram dengan kental manis. Selesai selamat mencoba.<br><br><b>Tips: </b><br>1. Buat santan dari kelapa yg masih baru atau segar.<br>2. Isian pelengkap sesuai selera masing masing.<br>"],
+        "Es Buah" => [4.9, "assets/img-esbuah.jpg", "Sulit","<b>Bahan: </b><br>Buah pepaya potong dadu - 200 gram<br>Nanas, kupas, buang tengahnya lalu potong potong dadu - 200 gram<br>Melon potong dadu - 200 gram<br>Anggur potong potong - 200 gram<br>Buah naga potong dadu - 200 gram<br>Gula pasir - 500 gram<br>Air - 2 liter", "<b>Cara Membuat: </b><br>1. Siapkan buah pepaya, nanas, melon, dan buah naga. Kupas buah - buah tersebut dari kulitnya, lalu potong kecil-kecil jadi bentuk dadu. Sisihkan.<br>2. Cuci bersih anggur lalu belah jadi dua bagian tiap buahnya. Buang bijinya dan sisihkan.<br>3. Dalam panci, rebus air hingga mendidih. Tambahkan gula pasir lalu aduk hingga larut. Biarkan hingga mendidih kembali. Angkat dan dinginkan.<br>4. Masukkan semua buah Yang sudah dipotong ke dalam air gula. Simpan dalam kulkas dan diamkan minimal 1 jam.<br>5. Siap disajikan.<br><br><b>Tips: </b><br>Bahan bisa menyesuaikan selera seperti ditambah jelly dan nata de coco."],
+        "Es Degan" => [4.7, "assets/img-esdegan.jpg", "Sedang","<b>Bahan: </b><br>Daging kelapa muda (serutan) - 250 gram<br>Air kelapa - 600 ml<br>Air perasan lemon - 2 sdm<br>Sirup coco pandan - 6 sdm<br>Es batu - secukupnya<br>", "<b>Cara Membuat: </b><br>1. Langkah pertama, siapkan amdahing kelapa yang sudah diseruti. Lalu taruh dalam wadah besar.<br>2. Dalam wadah yang sama, tuang air kelapa. Tambahkan perasan jeruk lemon dan sirup. Campur semua bahan lalu aduk hingga rata.<br>3. Tuang ke dalam gelas saji dan tambahkan es batu.<br>4. Siap disajikan.<br><br><b>Tips: </b><br>Takaran air dan daging kelapa muda tersebut diambil dari 2 butir buah kelapa.<br>"],
     ];
 }
-
-
-class Minuman extends Product{
-    public $product = [
-        "Lemon Tea " => ["assets/img-lemontea.jpg", 4.5, "Mudah"],
-        "Es Doger" => ["assets/img-esdoger.jpg", 4.7, "Mudah"],
-        "Es Buah" => ["assets/img-esbuah.jpg", 4.9, "Sulit"],
-        "Es Degan" => ["assets/img-esdegan.jpg", 4.7, "Sedang"],
-    ];
-}
-
-?>
