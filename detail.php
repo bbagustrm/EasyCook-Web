@@ -1,5 +1,10 @@
 <?php 
 
+if(!isset($_GET["product"]) || !isset($_GET["kategori"])){
+    header("Location: index.php");
+    exit;
+}
+
 require_once "product.php";
 $Makanan = new Makanan();
 $Minuman = new Minuman();
@@ -7,9 +12,9 @@ $Minuman = new Minuman();
 $nama_product = $_GET["product"];
 $kategori = $_GET["kategori"];
 
-$arr = array_merge($Makanan->product, $Minuman->product);
+$arr = array_merge($Makanan->getProduct(), $Minuman->getProduct());
 
-
+$i = 1;
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +34,7 @@ $arr = array_merge($Makanan->product, $Minuman->product);
         <div class="nav">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="about.php">About</a></li>
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Register</a></li>
             </ul>
@@ -38,18 +43,34 @@ $arr = array_merge($Makanan->product, $Minuman->product);
     <div class="container">
         <div class="content">
             <?php if($kategori == "makanan") : ?>
-            <div class="content-img" style="background-image: url('<?php echo $Makanan->product[$nama_product][1];?>');"></div>
+            <div class="content-img" style="background-image: url('<?php echo $Makanan->getProduct()[$nama_product][1];?>');"></div>
             <div class="content-box">
                 <h1>Resep <?php echo $nama_product?></h1><br><hr><br>
-                <p><?php echo $Makanan->product[$nama_product][3];?></p><br><br><hr><br>
-                <p><?php echo $Makanan->product[$nama_product][4];?></p>
+                <p><?php echo $Makanan->getProduct()[$nama_product][3];?></p><br><br><hr><br>
+                <div class="step">
+                <p><b>Cara Membuat:</b></p><br>
+                    <?php foreach($Makanan->getProduct()[$nama_product][4] as $step) :?>
+                        <div class="step-box">
+                            <h5><?= $i?></h5>
+                            <p><?= $step ?></p>
+                        </div>
+                    <?php $i++; endforeach;?>
+                </div><br>
             </div>
             <?php elseif($kategori == "minuman") :?>
-            <div class="content-img" style="background-image: url('<?php echo $Minuman->product[$nama_product][1];?>');"></div>
+            <div class="content-img" style="background-image: url('<?php echo $Minuman->getProduct()[$nama_product][1];?>');"></div>
             <div class="content-box">
-                <h1><?php echo $nama_product?></h1><br><hr><br>
-                <p><?php echo $Minuman->product[$nama_product][3];?></p><br><br><hr><br>
-                <p><?php echo $Minuman->product[$nama_product][4];?></p>
+                <h1>Resep <?php echo $nama_product?></h1><br><hr><br>
+                <p><?php echo $Minuman->getProduct()[$nama_product][3];?></p><br><br><hr><br>
+                <div class="step">
+                <p><b>Cara Membuat:</b></p><br>
+                    <?php foreach($Minuman->getProduct()[$nama_product][4] as $step) :?>
+                        <div class="step-box">
+                            <h5><?= $i?></h5>
+                            <p><?= $step ?></p>
+                        </div>
+                    <?php $i++; endforeach;?>
+                </div><br>
             </div>
             <?php endif;?>
         </div>
@@ -58,9 +79,9 @@ $arr = array_merge($Makanan->product, $Minuman->product);
             <?php arsort($arr); ?>
             <ul>
                 <?php foreach($arr as $x => $x_value): ?>
-                    <?php if(in_array($x, array_keys($Makanan->product))):?>
+                    <?php if(in_array($x, array_keys($Makanan->getProduct()))):?>
                         <li><a href="detail.php?product=<?=$x?>&kategori=makanan"><?= $x ?> <span style="float: right;"><?= $x_value[0] ?></span></a></li>
-                    <?php elseif(in_array($x, array_keys($Minuman->product))):?>
+                    <?php elseif(in_array($x, array_keys($Minuman->getProduct()))):?>
                         <li><a href="detail.php?product=<?=$x?>&kategori=minuman"><?= $x ?> <span style="float: right;"><?= $x_value[0] ?></span></a></li>
                     <?php endif?>
                 <?php endforeach;?>
@@ -70,3 +91,5 @@ $arr = array_merge($Makanan->product, $Minuman->product);
     <div class="footer">
         <p>© 2023 EasyCook.com, All rights reserved</p>
     </div>
+</body>
+</html>

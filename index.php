@@ -38,7 +38,7 @@ $Minuman = new Minuman();
             <a class="filter-minuman">Minuman</a>
         </div>
         <div class="content makanan">
-            <?php foreach($Makanan->product as $key => $value) {?>
+            <?php foreach($Makanan->getProduct() as $key => $value) {?>
             <div class="content-box">
                 <div class="content-img" style="background-image: url('<?php echo $value[1];?>');""></div>
                 <div class="content-des">
@@ -57,7 +57,7 @@ $Minuman = new Minuman();
             <?php };?>
         </div>
         <div class="content minuman">
-            <?php foreach($Minuman->product as $key => $value) {?>
+            <?php foreach($Minuman->getProduct() as $key => $value) {?>
             <div class="content-box">
                 <div class="content-img" style="background-image: url('<?php echo $value[1];?>');""></div>
                 <div class="content-des">
